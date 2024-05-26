@@ -89,6 +89,12 @@ const studentSchema = new Schema<TStudent, StudentModel, StudentMethods>(
       unique: true,
       trim: true,
     },
+    user: {
+      type: Schema.Types.ObjectId,
+      required: [true, 'User is is required.'],
+      unique: true,
+      ref: 'User',
+    },
     name: {
       type: userNameSchema,
       required: [true, 'Name is required'],
@@ -103,7 +109,7 @@ const studentSchema = new Schema<TStudent, StudentModel, StudentMethods>(
       trim: true,
     },
     dateOfBirth: {
-      type: String,
+      type: Date,
       trim: true,
     },
     email: {
@@ -150,9 +156,13 @@ const studentSchema = new Schema<TStudent, StudentModel, StudentMethods>(
       type: String,
       trim: true,
     },
-    isActive: {
+    admissionSemester:{
+      type: Schema.Types.ObjectId,
+      ref:'AcademicSemester'
+    },
+    isDeleted: {
       type: Boolean,
-      default: true,
+      default: false,
     },
   },
   {
