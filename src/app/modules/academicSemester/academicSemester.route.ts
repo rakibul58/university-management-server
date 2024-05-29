@@ -13,7 +13,8 @@ router
     ),
     AcademicSemesterControllers.createAcademicSemester,
   )
-  .get(AcademicSemesterControllers.getAllAcademicSemesters)
+
+router.route('/').get(AcademicSemesterControllers.getAllAcademicSemesters)
 
 router
   .route('/:semesterId')

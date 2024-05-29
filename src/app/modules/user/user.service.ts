@@ -12,7 +12,9 @@ const createStudentIntoDB = async (password: string, payload: TStudent) => {
   userData.password = password || (config.default_password as string)
   userData.role = 'student'
 
-  const admissionSemester = await AcademicSemester.findById(payload.admissionSemester)
+  const admissionSemester = await AcademicSemester.findById(
+    payload.admissionSemester,
+  )
 
   userData.id = await generateStudentId(admissionSemester as TAcademicSemester)
 
