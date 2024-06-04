@@ -8,7 +8,7 @@ const router = express.Router()
 router.get('/', StudentControllers.getAllStudents)
 
 router
-  .route('/:studentId')
+  .route('/:id')
   .get(StudentControllers.getSingleStudent)
   .patch(
     validateRequest(updateStudentValidationSchema),
